@@ -166,7 +166,7 @@ MacBook / desktop / phone
 Use the Mac as a remote terminal or browser client:
 
 ```bash
-ssh flex21@klipper.local
+ssh <user>@<raspberry-pi-host>.local
 ```
 
 Or open the dashboard from a browser:
