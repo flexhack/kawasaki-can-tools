@@ -28,3 +28,4 @@ dumps/
 # Local/private
 *.bak
 *.tmp
+commands.txt
