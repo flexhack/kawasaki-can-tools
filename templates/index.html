@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kawasaki ECU Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div>
+          <h1>Kawasaki ECU</h1>
+          <p id="last-update">Waiting for data</p>
+        </div>
+        <div class="status-row">
+          <div id="can-pill" class="pill disconnected">CAN</div>
+          <div id="timeout-pill" class="pill stale">Timeouts 0</div>
+        </div>
+      </header>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="live">Live</button>
+        <button class="tab" data-tab="diagnostics">Diagnostics</button>
+        <button class="tab" data-tab="logging">Logging</button>
+        <button class="tab" data-tab="raw">Raw CAN</button>
+      </nav>
+
+      <section id="live" class="tab-panel active">
+        <section id="grid" class="grid"></section>
+        <section class="panel">
+          <h2>Live Charts</h2>
+          <div id="charts" class="charts"></div>
+        </section>
+      </section>
+
+      <section id="diagnostics" class="tab-panel">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Read-only DTC</h2>
+            <button id="refresh-dtc">Refresh</button>
+          </div>
+          <div id="dtc-panel" class="kv"></div>
+        </section>
+        <section class="panel">
+          <h2>ECU Info</h2>
+          <div id="ecu-info" class="kv"></div>
+        </section>
+        <section class="panel">
+          <h2>Supported PIDs</h2>
+          <div id="supported-pids" class="list"></div>
+        </section>
+        <section class="panel">
+          <h2>Raspberry Pi Health</h2>
+          <div id="pi-health" class="kv"></div>
+        </section>
+      </section>
+
+      <section id="logging" class="tab-panel">
+        <section class="panel">
+          <h2>CSV Logging</h2>
+          <div class="actions">
+            <button id="start-log">Start Log</button>
+            <button id="stop-log">Stop Log</button>
+            <a id="download-log" class="button" href="/api/log/download">Download Latest CSV</a>
+          </div>
+          <div id="log-status" class="kv"></div>
+        </section>
+      </section>
+
+      <section id="raw" class="tab-panel">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Raw 7DF/7E8 Frames</h2>
+            <div class="actions">
+              <button id="pause-raw">Pause</button>
+              <button id="clear-raw">Clear</button>
+            </div>
+          </div>
+          <div id="raw-frames" class="raw-list"></div>
+        </section>
+      </section>
+    </main>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>

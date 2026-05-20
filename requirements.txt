@@ -1,0 +1,2 @@
+python-can>=4.4,<5
+Flask>=3.0,<4

@@ -1,0 +1,4 @@
+webui
+cd ~/kawasaki-can-tools && source .venv/bin/activate && ./scripts/can500.sh && python3 web_dashboard.py
+
+adress: http://192.168.1.162:8080

@@ -1,0 +1,30 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Runtime logs and generated files
+logs/
+dumps/
+*.log
+*.csv
+*.json
+
+# ECU / firmware dumps - never commit
+*.bin
+*.hex
+*.srec
+*.mot
+*.dump
+
+# Local/private
+*.bak
+*.tmp
